@@ -11,7 +11,7 @@ namespace Academico
     {
         public static int guardar(Estudiante estudiante)
         {
-            string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; data base=TI2019; user id=sa; password=Lab123456";
+            string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
             //definimos una objeto conexión
             SqlConnection conn = new SqlConnection(cadenaConexion);
 

@@ -29,7 +29,29 @@ namespace ProyectoCRUD
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int x = 0;
+            Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
+            estudiante.Matricula = this.txtMatricula.Text;
+            estudiante.Apellidos = this.txtApellido.Text;
+            estudiante.Nombres = this.txtNombre.Text;
+            estudiante.FechaNAcimiento = this.dtFechaNacimiento.Value;
+            estudiante.Correo = this.txtCorreo.Text;
+            string genero = "F";
+            if(this.cmbGenero.Text.ToString().Equals("Masculino"))
+            {
+                genero = "M";
+            }
+            estudiante.Genero = genero;
 
+            try
+            {
+                x = Academico.EstudianteDAO.guardar(estudiante);
+                MessageBox.Show("Registros agregados: " + x.ToString());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }
