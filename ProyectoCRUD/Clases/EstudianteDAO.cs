@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,9 @@ namespace Academico
 {
     public static class EstudianteDAO
     {
+        private static string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
         public static int guardar(Estudiante estudiante)
         {
-            string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
             //definimos una objeto conexión
             SqlConnection conn = new SqlConnection(cadenaConexion);
 
@@ -33,6 +34,19 @@ namespace Academico
             int x = comando.ExecuteNonQuery();//ejecutamos el comando
             conn.Close();
             return x;
+
         } 
+    public static DataTable getDatos()
+        {
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+            string sql = "select matricula,apellidos,nombres,genero," +
+                "fechaNacimiento,email from estudiantes order by apellidos";
+
+            SqlDataAdapter ad = new SqlDataAdapter(sql,conn);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+
+            return dt;
+        }
     }
 }

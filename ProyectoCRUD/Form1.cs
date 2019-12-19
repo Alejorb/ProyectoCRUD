@@ -19,9 +19,12 @@ namespace ProyectoCRUD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            cargarGridEstudiantes(); 
         }
-
+        private void cargarGridEstudiantes()
+        {
+            this.dgEstudiantes.DataSource = Academico.EstudianteDAO.getDatos();
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -46,12 +49,28 @@ namespace ProyectoCRUD
             try
             {
                 x = Academico.EstudianteDAO.guardar(estudiante);
+                cargarGridEstudiantes();
                 MessageBox.Show("Registros agregados: " + x.ToString());
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.txtMatricula.Clear();
+            this.txtApellido.Clear();
+            this.txtNombre.Clear();
+            this.cmbGenero.Items.Clear();
+            this.dtFechaNacimiento.DataBindings.Clear();
+            this.txtCorreo.Clear();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
