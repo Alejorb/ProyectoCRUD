@@ -188,10 +188,10 @@
             this.dgEstudiantes.AllowUserToAddRows = false;
             this.dgEstudiantes.AllowUserToDeleteRows = false;
             this.dgEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEstudiantes.Location = new System.Drawing.Point(31, 280);
+            this.dgEstudiantes.Location = new System.Drawing.Point(27, 280);
             this.dgEstudiantes.Name = "dgEstudiantes";
             this.dgEstudiantes.ReadOnly = true;
-            this.dgEstudiantes.Size = new System.Drawing.Size(601, 175);
+            this.dgEstudiantes.Size = new System.Drawing.Size(635, 175);
             this.dgEstudiantes.TabIndex = 15;
             // 
             // Form1

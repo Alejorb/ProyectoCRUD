@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,13 +39,23 @@ namespace ProyectoCRUD
             estudiante.Apellidos = this.txtApellido.Text;
             estudiante.Nombres = this.txtNombre.Text;
             estudiante.FechaNAcimiento = this.dtFechaNacimiento.Value;
-            estudiante.Correo = this.txtCorreo.Text;
+            
             string genero = "F";
             if(this.cmbGenero.Text.ToString().Equals("Masculino"))
             {
                 genero = "M";
             }
             estudiante.Genero = genero;
+
+            if (Academico.EstudianteDAO.validarEmail(this.txtCorreo.Text) == false)
+            {
+                MessageBox.Show("El Email Ingresado no se encuentra en el Formato Correcto",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                estudiante.Correo = this.txtCorreo.Text;
+            }
 
             try
             {
@@ -58,12 +69,11 @@ namespace ProyectoCRUD
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+            private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.txtMatricula.Clear();
             this.txtApellido.Clear();
             this.txtNombre.Clear();
-            this.cmbGenero.Items.Clear();
             this.dtFechaNacimiento.DataBindings.Clear();
             this.txtCorreo.Clear();
         }
