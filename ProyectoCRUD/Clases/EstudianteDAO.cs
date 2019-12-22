@@ -84,7 +84,10 @@ namespace Academico
             }
         }
 
-
+        /// <summary>
+        /// Llenar el cmbMatricula
+        /// </summary>
+        /// <returns></returns>
         public static DataTable getNombresCompletos()
         {
             SqlConnection conn = new SqlConnection(cadenaConexion);
@@ -119,6 +122,11 @@ namespace Academico
             return dt;
         }
 
+        /// <summary>
+        /// Borrar a un estudiante de la base de datos
+        /// </summary>
+        /// <param name="matricula"></param>
+        /// <returns></returns>
         public static int borrar(String matricula)
         {
             //definimos una objeto conexión

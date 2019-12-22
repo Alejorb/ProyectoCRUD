@@ -49,7 +49,7 @@ namespace ProyectoCRUD
 
             if (Academico.EstudianteDAO.validarEmail(this.txtCorreo.Text) == false)
             {
-                MessageBox.Show("El Email Ingresado no se encuentra en el Formato Correcto",
+                MessageBox.Show("El e-mail ingresado no se encuentra en el formato correcto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -69,7 +69,8 @@ namespace ProyectoCRUD
             }
         }
 
-            private void btnNuevo_Click(object sender, EventArgs e)
+        
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.txtMatricula.Clear();
             this.txtApellido.Clear();

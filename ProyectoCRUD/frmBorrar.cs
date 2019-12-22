@@ -54,13 +54,15 @@ namespace ProyectoCRUD
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            DialogResult opcion=MessageBox.Show("¿Desea eliminar al estudiante?","¡ADVERTENCIA!",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult opcion=MessageBox.Show("¿Desea eliminar al estudiante?",
+                "¡ADVERTENCIA!",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             if (opcion==DialogResult.Yes)
             {
                 int x= Academico.EstudianteDAO.borrar(this.cmbMatricula.SelectedValue.ToString());
                 this.txtApellido.Clear();
                 this.txtNombre.Clear();
                 this.txtGenero.Clear();
+                this.txtFechaNacimiento.Clear();
                 this.txtCorreo.Clear();
                 DataTable dt = Academico.EstudianteDAO.getNombresCompletos();
                 this.cmbMatricula.DataSource = dt;
