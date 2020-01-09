@@ -61,7 +61,7 @@ namespace ProyectoCRUD
             {
                 x = Academico.EstudianteDAO.guardar(estudiante);
                 cargarGridEstudiantes();
-                MessageBox.Show("Registros agregados: " + x.ToString());
+                MessageBox.Show("Registros agregados: " + x.ToString());//el número de filas agregadas
             }
             catch(Exception ex)
             {

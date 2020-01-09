@@ -11,11 +11,11 @@ namespace Academico
 {
     public static class EstudianteDAO
     {
-        private static string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
-        public static int guardar(Estudiante estudiante)
+        private static string cadenaConexion = @"server=L-PCT-151\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
+        public static int guardar(Estudiante estudiante/*objeto de la clase*/ )
         {
             //definimos una objeto conexión
-            SqlConnection conn = new SqlConnection(cadenaConexion);
+            SqlConnection conn = new SqlConnection(cadenaConexion/*llamada de clase*/);//creando conexión
 
             string sql = "insert into estudiantes(matricula,apellidos,nombres,genero," +
                 "fechaNacimiento,email) values(@matricula,@apellidos,@nombres,@genero," +
@@ -31,10 +31,10 @@ namespace Academico
             comando.Parameters.AddWithValue("@genero", estudiante.Genero);
             comando.Parameters.AddWithValue("@fechaNacimiento", estudiante.FechaNAcimiento);
             comando.Parameters.AddWithValue("@email", estudiante.Correo);
-            conn.Open();
+            conn.Open();//abrir la conexión
             int x = comando.ExecuteNonQuery();//ejecutamos el comando
-            conn.Close();
-            return x;
+            conn.Close();//cerrar la conexión
+            return x;//retornar
 
         } 
 
@@ -117,7 +117,7 @@ namespace Academico
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
             ad.SelectCommand.Parameters.AddWithValue("@matricula", matricula);
             DataTable dt = new DataTable();
-            ad.Fill(dt);
+            ad.Fill(dt);//llena el dataTable dt
 
             return dt;
         }
