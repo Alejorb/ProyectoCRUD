@@ -33,6 +33,7 @@ namespace ProyectoCRUD
             {
                 foreach (DataRow fila in dt.Rows)
                 {
+
                     this.txtApellido.Text = fila["apellidos"].ToString();
                     this.txtNombre.Text = fila["nombres"].ToString();
                     this.txtGenero.Text = fila["genero"].ToString();
