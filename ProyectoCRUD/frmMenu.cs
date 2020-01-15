@@ -21,7 +21,7 @@ namespace ProyectoCRUD
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            //Llamadaal form para agregar nuevos registros
+            //Llamada al form para agregar nuevos registros
             Form1 frm1 = new Form1();
             frm1.MdiParent = this;
             frm1.Show();
@@ -42,7 +42,7 @@ namespace ProyectoCRUD
             frm1.MdiParent = this;
             frm1.Show();
         }
-
+            
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             //this.Close();
@@ -106,7 +106,7 @@ namespace ProyectoCRUD
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Abrir el formulario de Búsqueda
+            //Abrir el formulario de Borrar o Eliminar
             frmBorrar frm1 = new frmBorrar();
             frm1.MdiParent = this;
             frm1.Show();

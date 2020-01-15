@@ -31,7 +31,7 @@ namespace ProyectoCRUD
         {
             if(buscar()==false)
             {
-                MessageBox.
+                MessageBox.Show("No existe el registro...");
             }
         }
         private bool buscar()
@@ -45,13 +45,13 @@ namespace ProyectoCRUD
                     encontrado = true;
                     this.txtApellido.Text = fila["apellidos"].ToString();
                     this.txtNombre.Text = fila["nombres"].ToString();
-                    this.txtGenero.Text = fila["genero"].ToString();
-                    this.txtFechaNacimiento.Text = fila["fechaNacimiento"].ToString();
+                    this.cmbGenero.Text = fila["genero"].ToString();
+                    this.dtFechaNacimiento.Text = fila["fechaNacimiento"].ToString();
                     this.txtCorreo.Text = fila["email"].ToString();
                     break;
                 }
             }
-            return false;
+            return encontrado;
         }
         private void frmAcrualizar_Load(object sender, EventArgs e)
         {
@@ -63,8 +63,54 @@ namespace ProyectoCRUD
 
         private void cmbMatricula_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.)
-            buscar();
+                if (this.cmbMatricula.SelectedIndex >= 0)
+                {
+                    buscar();
+                }    
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            int x = 0;
+            Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
+            estudiante.Matricula = Convert.ToString(this.cmbMatricula.SelectedValue);
+            estudiante.Apellidos = this.txtApellido.Text;
+            estudiante.Nombres = this.txtNombre.Text;
+            estudiante.FechaNAcimiento = this.dtFechaNacimiento.Value;
+
+            string genero = "F";
+            if (this.cmbGenero.Text.ToString().Equals("Masculino"))
+            {
+                genero = "M";
+            }
+            estudiante.Genero = genero;
+
+            if (Academico.EstudianteDAO.validarEmail(this.txtCorreo.Text) == false)
+            {
+                MessageBox.Show("El e-mail ingresado no se encuentra en el formato correcto",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                estudiante.Correo = this.txtCorreo.Text;
+            }
+
+            try
+            {
+                x = Academico.EstudianteDAO.actualizar(estudiante);
+                
+                MessageBox.Show("Registros agregados: " + x.ToString());//el número de filas agregadas
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+           
         }
     }
 }

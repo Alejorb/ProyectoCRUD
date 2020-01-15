@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActualizar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtGenero = new System.Windows.Forms.TextBox();
-            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -48,15 +46,17 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.cmbGenero = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtGenero);
-            this.groupBox1.Controls.Add(this.txtFechaNacimiento);
+            this.groupBox1.Controls.Add(this.dtFechaNacimiento);
             this.groupBox1.Controls.Add(this.txtCorreo);
+            this.groupBox1.Controls.Add(this.cmbGenero);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label6);
@@ -71,30 +71,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del estudiante";
             // 
-            // txtGenero
-            // 
-            this.txtGenero.Location = new System.Drawing.Point(209, 127);
-            this.txtGenero.MaxLength = 30;
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.ReadOnly = true;
-            this.txtGenero.Size = new System.Drawing.Size(136, 20);
-            this.txtGenero.TabIndex = 23;
-            // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
-            this.txtFechaNacimiento.MaxLength = 30;
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.ReadOnly = true;
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(136, 20);
-            this.txtFechaNacimiento.TabIndex = 22;
-            // 
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(209, 216);
             this.txtCorreo.MaxLength = 80;
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.ReadOnly = true;
             this.txtCorreo.Size = new System.Drawing.Size(200, 20);
             this.txtCorreo.TabIndex = 21;
             // 
@@ -103,7 +84,6 @@
             this.txtNombre.Location = new System.Drawing.Point(209, 83);
             this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 18;
             // 
@@ -112,7 +92,6 @@
             this.txtApellido.Location = new System.Drawing.Point(209, 40);
             this.txtApellido.MaxLength = 30;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(200, 20);
             this.txtApellido.TabIndex = 17;
             // 
@@ -207,36 +186,53 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButton1.Text = "Actualizar";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(59, 22);
-            this.toolStripLabel1.Text = "Actualizar";
+            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(59, 22);
+            this.toolStripButton2.Text = "Cerrar";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(39, 22);
-            this.toolStripLabel2.Text = "Cerrar";
+            this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
             // 
-            // frmAcrualizar
+            // dtFechaNacimiento
+            // 
+            this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
+            this.dtFechaNacimiento.Name = "dtFechaNacimiento";
+            this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtFechaNacimiento.TabIndex = 25;
+            // 
+            // cmbGenero
+            // 
+            this.cmbGenero.FormattingEnabled = true;
+            this.cmbGenero.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cmbGenero.Location = new System.Drawing.Point(209, 127);
+            this.cmbGenero.Name = "cmbGenero";
+            this.cmbGenero.Size = new System.Drawing.Size(136, 21);
+            this.cmbGenero.TabIndex = 24;
+            // 
+            // frmActualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,7 +242,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cmbMatricula);
             this.Controls.Add(this.label1);
-            this.Name = "frmAcrualizar";
+            this.Name = "frmActualizar";
             this.Text = "Actualizar registro de estudiantes";
             this.Load += new System.EventHandler(this.frmAcrualizar_Load);
             this.groupBox1.ResumeLayout(false);
@@ -261,8 +257,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtGenero;
-        private System.Windows.Forms.TextBox txtFechaNacimiento;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
@@ -279,5 +273,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.DateTimePicker dtFechaNacimiento;
+        private System.Windows.Forms.ComboBox cmbGenero;
     }
 }

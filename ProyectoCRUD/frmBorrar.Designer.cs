@@ -175,6 +175,7 @@
             this.cmbMatricula.Name = "cmbMatricula";
             this.cmbMatricula.Size = new System.Drawing.Size(181, 21);
             this.cmbMatricula.TabIndex = 5;
+            this.cmbMatricula.SelectedIndexChanged += new System.EventHandler(this.cmbMatricula_SelectedIndexChanged);
             // 
             // label1
             // 

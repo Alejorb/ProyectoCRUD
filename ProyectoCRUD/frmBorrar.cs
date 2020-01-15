@@ -74,5 +74,10 @@ namespace ProyectoCRUD
         {
             this.Close();
         }
+
+        private void cmbMatricula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
