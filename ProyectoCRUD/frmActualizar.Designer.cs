@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActualizar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.cmbGenero = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.cmbGenero = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del estudiante";
             // 
+            // dtFechaNacimiento
+            // 
+            this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
+            this.dtFechaNacimiento.Name = "dtFechaNacimiento";
+            this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtFechaNacimiento.TabIndex = 25;
+            // 
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(209, 216);
@@ -78,6 +86,17 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(200, 20);
             this.txtCorreo.TabIndex = 21;
+            // 
+            // cmbGenero
+            // 
+            this.cmbGenero.FormattingEnabled = true;
+            this.cmbGenero.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cmbGenero.Location = new System.Drawing.Point(209, 127);
+            this.cmbGenero.Name = "cmbGenero";
+            this.cmbGenero.Size = new System.Drawing.Size(136, 21);
+            this.cmbGenero.TabIndex = 24;
             // 
             // txtNombre
             // 
@@ -213,25 +232,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(0, 22);
             // 
-            // dtFechaNacimiento
-            // 
-            this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
-            this.dtFechaNacimiento.Name = "dtFechaNacimiento";
-            this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dtFechaNacimiento.TabIndex = 25;
-            // 
-            // cmbGenero
-            // 
-            this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cmbGenero.Location = new System.Drawing.Point(209, 127);
-            this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(136, 21);
-            this.cmbGenero.TabIndex = 24;
-            // 
             // frmActualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +244,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmActualizar";
             this.Text = "Actualizar registro de estudiantes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAcrualizar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -55,6 +55,7 @@ namespace ProyectoCRUD
         }
         private void frmAcrualizar_Load(object sender, EventArgs e)
         {
+            
             DataTable dt = Academico.EstudianteDAO.getNombresCompletos();
             this.cmbMatricula.DataSource = dt;
             this.cmbMatricula.DisplayMember = "Estudiante";
@@ -76,41 +77,45 @@ namespace ProyectoCRUD
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            int x = 0;
-            Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
-            estudiante.Matricula = Convert.ToString(this.cmbMatricula.SelectedValue);
-            estudiante.Apellidos = this.txtApellido.Text;
-            estudiante.Nombres = this.txtNombre.Text;
-            estudiante.FechaNAcimiento = this.dtFechaNacimiento.Value;
+            if ()
+            {
+                int x = 0;
+                Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
+                estudiante.Matricula = Convert.ToString(this.cmbMatricula.SelectedValue);
+                estudiante.Apellidos = this.txtApellido.Text;
+                estudiante.Nombres = this.txtNombre.Text;
+                estudiante.FechaNAcimiento = this.dtFechaNacimiento.Value;
 
-            string genero = "F";
-            if (this.cmbGenero.Text.ToString().Equals("Masculino"))
-            {
-                genero = "M";
-            }
-            estudiante.Genero = genero;
+                string genero = "F";
+                if (this.cmbGenero.Text.ToString().Equals("Masculino"))
+                {
+                    genero = "M";
+                }
+                estudiante.Genero = genero;
 
-            if (Academico.EstudianteDAO.validarEmail(this.txtCorreo.Text) == false)
-            {
-                MessageBox.Show("El e-mail ingresado no se encuentra en el formato correcto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                estudiante.Correo = this.txtCorreo.Text;
-            }
+                if (Academico.EstudianteDAO.validarEmail(this.txtCorreo.Text) == false)
+                {
+                    MessageBox.Show("El e-mail ingresado no se encuentra en el formato correcto",
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    estudiante.Correo = this.txtCorreo.Text;
+                }
 
-            try
-            {
-                x = Academico.EstudianteDAO.actualizar(estudiante);
-                
-                MessageBox.Show("Registros agregados: " + x.ToString());//el número de filas agregadas
+                try
+                {
+                    x = Academico.EstudianteDAO.actualizar(estudiante);
+
+                    MessageBox.Show("Registros actualizados: " + x.ToString());//el número de filas agregadas
+                    DataTable dt = Academico.EstudianteDAO.getNombresCompletos();
+                    this.cmbMatricula.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-           
         }
     }
 }

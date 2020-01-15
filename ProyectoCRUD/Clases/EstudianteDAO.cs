@@ -11,7 +11,7 @@ namespace Academico
 {
     public static class EstudianteDAO
     {
-        private static string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
+        private static string cadenaConexion = @"server=L-PCT-151\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
         public static int guardar(Estudiante estudiante/*objeto de la clase*/ )
         {
             //definimos una objeto conexión
@@ -152,8 +152,10 @@ namespace Academico
             //definimos una objeto conexión
             SqlConnection conn = new SqlConnection(cadenaConexion/*llamada de clase*/);//creando conexión
 
-            string sql = "update estudiantes set apellidos=@apellidos,nombres=@nombres, genero=@genero, " +
-                "fechaNacimiento=@fechaNacimiento, email=@email where matricula=@matricula ";
+            string sql = "update estudiantes set " +
+                "apellidos=@apellidos,nombres=@nombres, genero=@genero, " +
+                "fechaNacimiento=@fechaNacimiento, email=@email " +
+                "where matricula=@matricula ";
 
             //definimos un comando
             SqlCommand comando = new SqlCommand(sql, conn);
