@@ -144,6 +144,7 @@
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 20);
             this.dtFechaNacimiento.TabIndex = 10;
+            this.dtFechaNacimiento.ValueChanged += new System.EventHandler(this.dtFechaNacimiento_ValueChanged);
             // 
             // txtCorreo
             // 

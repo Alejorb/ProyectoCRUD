@@ -83,5 +83,10 @@ namespace ProyectoCRUD
         {
             this.Close();
         }
+
+        private void dtFechaNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
