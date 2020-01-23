@@ -9,8 +9,9 @@ namespace Academico
     public class usuarios
     {
         public int idLogin { get; set; }
-        public string nombreCompleto { get; set; }
-        public string login { get; set; }
-        public string clave { get; set; }
+        public String nombreCompleto { get; set; }
+        public String login { get; set; }
+        public String clave { get; set; }
+        public String tipoUsuario { get; set; }
     }
 }

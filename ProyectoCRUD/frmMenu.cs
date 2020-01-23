@@ -116,5 +116,17 @@ namespace ProyectoCRUD
         {
 
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Adm.frmUsuario frm1 = new Adm.frmUsuario();
+            frm1.MdiParent = this;
+            frm1.Show();
+        }
     }
 }
