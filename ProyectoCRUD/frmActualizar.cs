@@ -77,8 +77,8 @@ namespace ProyectoCRUD
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if ()
-            {
+            
+            
                 int x = 0;
                 Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
                 estudiante.Matricula = Convert.ToString(this.cmbMatricula.SelectedValue);
@@ -115,7 +115,7 @@ namespace ProyectoCRUD
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
-            }
+            
         }
     }
 }
