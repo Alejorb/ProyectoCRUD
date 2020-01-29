@@ -58,6 +58,9 @@ namespace ProyectoCRUD.Adm
         private void cargarGrid()
         {
             this.dgUsuario.DataSource = Academico.usuariosDAO.getDatos();
+            DataGridViewButtonColumn btnSelec = new DataGridViewButtonColumn();
+            btnSelec.Name = "Seleccionar";
+            dgUsuario.Columns.Add(btnSelec);
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -81,6 +84,22 @@ namespace ProyectoCRUD.Adm
 
         private void txtNombreCompleto_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgUsuario_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgUsuario.Columns[e.ColumnIndex].Name == "Seleccionar" && e.RowIndex > 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewImageCell celBoton = this.dgUsuario.Rows[e.RowIndex].Cells["Seleccionar"] as DataGridViewImageCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "@\\si");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                this.dgUsuario.Rows[e.RowIndex].Height = icoAtomico.Height + 5;
+                this.dgUsuario.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
+                e.Handled = true;
+            }
 
         }
     }
