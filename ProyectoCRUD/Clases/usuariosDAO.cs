@@ -10,12 +10,12 @@ namespace Academico
 {
     public static class usuariosDAO
     {
-        private static string cadenaConexion = @"server=DESKTOP-A6URQU3\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
+        private static string cadenaConexion = @"server=ERICK\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
         public static bool validaUsuario(string usuario, string clave)/*objeto de la clase*/ 
         {
             SqlConnection conn = new SqlConnection(cadenaConexion);
             string sql = "select idLogin,nombreCompleto " +
-                " from usuarios1 " +
+                " from usuarios " +
                 "where login=@login and clave=@clave ";
 
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
@@ -35,7 +35,7 @@ namespace Academico
             SqlConnection conn = new SqlConnection(cadenaConexion/*llamada de clase*/);//creando conexión
 
             string sql = "insert into " +
-                "usuarios1(nombreCompleto,login,clave,tipoUsuario) " +
+                "usuarios(nombreCompleto,login,clave,tipoUsuario) " +
                 " values(@nombreCompleto,@login,@clave,@tipoUsuario)";
 
             //definimos un comando
@@ -56,7 +56,7 @@ namespace Academico
         {
             SqlConnection conn = new SqlConnection(cadenaConexion);
             string sql = "select idLogin,nombreCompleto,login,clave,tipoUsuario " +
-                "from usuarios1 order by nombreCompleto";
+                "from usuarios order by nombreCompleto";
 
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();

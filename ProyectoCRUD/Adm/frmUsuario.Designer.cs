@@ -151,6 +151,7 @@
             this.dgUsuario.ReadOnly = true;
             this.dgUsuario.Size = new System.Drawing.Size(635, 175);
             this.dgUsuario.TabIndex = 31;
+            this.dgUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuario_CellClick);
             this.dgUsuario.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgUsuario_CellPainting);
             // 
             // label6

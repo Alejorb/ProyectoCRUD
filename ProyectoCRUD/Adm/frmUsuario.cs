@@ -101,7 +101,7 @@ namespace ProyectoCRUD.Adm
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = this.dgUsuario.Rows[e.RowIndex].Cells["Seleccionar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\si.jpg");
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\selec.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 this.dgUsuario.Rows[e.RowIndex].Height = icoAtomico.Height + 5;
@@ -110,6 +110,19 @@ namespace ProyectoCRUD.Adm
                 e.Handled = true;
             }
 
+        }
+
+        private void dgUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgUsuario.Columns[e.ColumnIndex].Name == "Seleccionar")
+            {
+
+                txtId.Text = dgUsuario.CurrentRow.Cells[1].Value.ToString();
+                txtNombreCompleto.Text= dgUsuario.CurrentRow.Cells[2].Value.ToString();
+                txtLogin.Text= dgUsuario.CurrentRow.Cells[3].Value.ToString();
+                txtClave.Text= dgUsuario.CurrentRow.Cells[4].Value.ToString();
+                cmbTipoUsuario.Text = dgUsuario.CurrentRow.Cells[5].Value.ToString();
+            }
         }
     }
 }
