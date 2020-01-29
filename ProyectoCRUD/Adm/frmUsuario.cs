@@ -58,9 +58,7 @@ namespace ProyectoCRUD.Adm
         private void cargarGrid()
         {
             this.dgUsuario.DataSource = Academico.usuariosDAO.getDatos();
-            DataGridViewButtonColumn btnSelec = new DataGridViewButtonColumn();
-            btnSelec.Name = "Seleccionar";
-            dgUsuario.Columns.Add(btnSelec);
+            
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -71,8 +69,17 @@ namespace ProyectoCRUD.Adm
         private void frmUsuario_Load(object sender, EventArgs e)
         {
             encerar();
+            seleccionar();
             cargarGrid();
         }
+
+        private void seleccionar()
+        {
+            DataGridViewButtonColumn btnSelec = new DataGridViewButtonColumn();
+            btnSelec.Name = "Seleccionar";
+            dgUsuario.Columns.Add(btnSelec);
+        }
+
         private void encerar()
         {
             this.txtId.Text = "0";
@@ -89,15 +96,17 @@ namespace ProyectoCRUD.Adm
 
         private void dgUsuario_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex >= 0 && this.dgUsuario.Columns[e.ColumnIndex].Name == "Seleccionar" && e.RowIndex > 0)
+            if (e.ColumnIndex >= 0 && this.dgUsuario.Columns[e.ColumnIndex].Name == "Seleccionar" && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                DataGridViewImageCell celBoton = this.dgUsuario.Rows[e.RowIndex].Cells["Seleccionar"] as DataGridViewImageCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "@\\si");
+
+                DataGridViewButtonCell celBoton = this.dgUsuario.Rows[e.RowIndex].Cells["Seleccionar"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\si.jpg");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 this.dgUsuario.Rows[e.RowIndex].Height = icoAtomico.Height + 5;
                 this.dgUsuario.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
+
                 e.Handled = true;
             }
 
