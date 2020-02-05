@@ -40,20 +40,51 @@ namespace ProyectoCRUD.Adm
             }
 
             Academico.usuarios usuario = new Academico.usuarios(); //Creando instancia
-            usuario.nombreCompleto = this.txtNombreCompleto.Text;
-            usuario.login = this.txtLogin.Text;
-            usuario.clave = this.txtClave.Text;
-            usuario.tipoUsuario = this.cmbTipoUsuario.Text;
-            int x = Academico.usuariosDAO.guardar(usuario);
-            if(x>0)
+            int a=int.Parse(this.txtId.Text);
+            if(a>0)
             {
-                MessageBox.Show("Usuario guardado con éxito...");
-                cargarGrid();
+                usuario.idLogin = a;
+                usuario.nombreCompleto = this.txtNombreCompleto.Text;
+                usuario.login = this.txtLogin.Text;
+                usuario.clave = this.txtClave.Text;
+                usuario.tipoUsuario = this.cmbTipoUsuario.Text;
+                int x = Academico.usuariosDAO.actualizar(usuario);
+                if (x > 0)
+                {
+                    MessageBox.Show("Usuario actualizado con éxito...");
+                    encerar();
+                    cargarGrid();
+                }
+                else
+                {
+
+                    MessageBox.Show("No se puede agregar el usuario...");
+                }
             }
             else
             {
-                MessageBox.Show("No se puede agregar el usuario...");
+                usuario.nombreCompleto = this.txtNombreCompleto.Text;
+                usuario.login = this.txtLogin.Text;
+                usuario.clave = this.txtClave.Text;
+                usuario.tipoUsuario = this.cmbTipoUsuario.Text;
+                int x = Academico.usuariosDAO.guardar(usuario);
+                if (x > 0)
+                {
+                    MessageBox.Show("Usuario guardado con éxito...");
+                    cargarGrid();
+                    encerar();
+                }
+                else
+                {
+
+                    MessageBox.Show("No se puede agregar el usuario...");
+                }
             }
+                
+            
+            
+                
+            
         }
         private void cargarGrid()
         {
@@ -70,6 +101,7 @@ namespace ProyectoCRUD.Adm
         {
             encerar();
             seleccionar();
+            eliminar();
             cargarGrid();
         }
 
@@ -77,6 +109,12 @@ namespace ProyectoCRUD.Adm
         {
             DataGridViewButtonColumn btnSelec = new DataGridViewButtonColumn();
             btnSelec.Name = "Seleccionar";
+            dgUsuario.Columns.Add(btnSelec);
+        }
+        private void eliminar()
+        {
+            DataGridViewButtonColumn btnSelec = new DataGridViewButtonColumn();
+            btnSelec.Name = "Eliminar";
             dgUsuario.Columns.Add(btnSelec);
         }
 
@@ -107,9 +145,22 @@ namespace ProyectoCRUD.Adm
                 this.dgUsuario.Rows[e.RowIndex].Height = icoAtomico.Height + 5;
                 this.dgUsuario.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
 
-                e.Handled = true;
+                e.Handled = true;                                                   
             }
 
+            if (e.ColumnIndex >= 0 && this.dgUsuario.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = this.dgUsuario.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\elim.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                this.dgUsuario.Rows[e.RowIndex].Height = icoAtomico.Height + 5;
+                this.dgUsuario.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
+
+                e.Handled = true;
+            }
         }
 
         private void dgUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -117,11 +168,23 @@ namespace ProyectoCRUD.Adm
             if (this.dgUsuario.Columns[e.ColumnIndex].Name == "Seleccionar")
             {
 
-                txtId.Text = dgUsuario.CurrentRow.Cells[1].Value.ToString();
-                txtNombreCompleto.Text= dgUsuario.CurrentRow.Cells[2].Value.ToString();
-                txtLogin.Text= dgUsuario.CurrentRow.Cells[3].Value.ToString();
-                txtClave.Text= dgUsuario.CurrentRow.Cells[4].Value.ToString();
-                cmbTipoUsuario.Text = dgUsuario.CurrentRow.Cells[5].Value.ToString();
+                txtId.Text = dgUsuario.CurrentRow.Cells[2].Value.ToString();
+                txtNombreCompleto.Text= dgUsuario.CurrentRow.Cells[3].Value.ToString();
+                txtLogin.Text= dgUsuario.CurrentRow.Cells[4].Value.ToString();
+                txtClave.Text= dgUsuario.CurrentRow.Cells[5].Value.ToString();
+                cmbTipoUsuario.Text = dgUsuario.CurrentRow.Cells[6].Value.ToString();
+            }
+
+            if (this.dgUsuario.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                DialogResult opcion = MessageBox.Show("¿Desea eliminar al usuario?",
+                "¡ADVERTENCIA!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    int x = Academico.usuariosDAO.borrar(dgUsuario.CurrentRow.Cells[2].Value.ToString());
+                    encerar();
+                    cargarGrid();
+                }
             }
         }
     }
