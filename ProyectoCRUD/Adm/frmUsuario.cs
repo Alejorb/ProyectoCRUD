@@ -173,6 +173,7 @@ namespace ProyectoCRUD.Adm
                 txtLogin.Text= dgUsuario.CurrentRow.Cells[4].Value.ToString();
                 txtClave.Text= dgUsuario.CurrentRow.Cells[5].Value.ToString();
                 cmbTipoUsuario.Text = dgUsuario.CurrentRow.Cells[6].Value.ToString();
+
             }
 
             if (this.dgUsuario.Columns[e.ColumnIndex].Name == "Eliminar")

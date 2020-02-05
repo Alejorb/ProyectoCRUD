@@ -41,7 +41,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(161, 210);
+            this.btnGuardar.Location = new System.Drawing.Point(112, 153);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(102, 50);
             this.btnGuardar.TabIndex = 20;
@@ -51,7 +51,7 @@
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(231, 127);
+            this.txtClave.Location = new System.Drawing.Point(161, 100);
             this.txtClave.MaxLength = 30;
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
@@ -60,7 +60,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(231, 57);
+            this.txtUsuario.Location = new System.Drawing.Point(161, 30);
             this.txtUsuario.MaxLength = 40;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(200, 20);
@@ -69,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 134);
+            this.label3.Location = new System.Drawing.Point(27, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 16;
@@ -78,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 64);
+            this.label2.Location = new System.Drawing.Point(27, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 15;
@@ -87,7 +87,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(529, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(419, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 136);
             this.pictureBox1.TabIndex = 22;
@@ -96,7 +96,7 @@
             // btnCerrar
             // 
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCerrar.Location = new System.Drawing.Point(343, 210);
+            this.btnCerrar.Location = new System.Drawing.Point(294, 153);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(102, 50);
             this.btnCerrar.TabIndex = 23;
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(724, 287);
+            this.ClientSize = new System.Drawing.Size(595, 219);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnGuardar);
