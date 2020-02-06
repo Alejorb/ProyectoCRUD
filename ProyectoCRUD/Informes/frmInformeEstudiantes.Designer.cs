@@ -30,68 +30,49 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.dsEstudiantes = new ProyectoCRUD.ds.dsEstudiantes();
-            this.EstudiantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estudiantesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.estudiantesTableAdapter = new ProyectoCRUD.ds.dsEstudiantesTableAdapters.EstudiantesTableAdapter();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.estudiantesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dsEstudiantes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EstudiantesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudiantesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudiantesBindingSource2)).BeginInit();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsEstudiantes1 = new ProyectoCRUD.ds.dsEstudiantes();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.estudiantesTableAdapter1 = new ProyectoCRUD.ds.dsEstudiantesTableAdapters.EstudiantesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dsEstudiantes1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dsEstudiantes
+            // reportViewer2
             // 
-            this.dsEstudiantes.DataSetName = "dsEstudiantes";
-            this.dsEstudiantes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // EstudiantesBindingSource
-            // 
-            this.EstudiantesBindingSource.DataMember = "Estudiantes";
-            this.EstudiantesBindingSource.DataSource = this.dsEstudiantes;
-            // 
-            // estudiantesBindingSource1
-            // 
-            this.estudiantesBindingSource1.DataMember = "Estudiantes";
-            this.estudiantesBindingSource1.DataSource = this.dsEstudiantes;
-            // 
-            // estudiantesTableAdapter
-            // 
-            this.estudiantesTableAdapter.ClearBeforeFill = true;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.estudiantesBindingSource2;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ProyectoCRUD.Informes.rptEstudiantes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
+            reportDataSource1.Value = this.bindingSource1;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "ProyectoCRUD.Informes.rptEstudiantes.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(757, 280);
+            this.reportViewer2.TabIndex = 0;
             // 
-            // estudiantesBindingSource2
+            // dsEstudiantes1
             // 
-            this.estudiantesBindingSource2.DataMember = "Estudiantes";
-            this.estudiantesBindingSource2.DataSource = this.dsEstudiantes;
+            this.dsEstudiantes1.DataSetName = "dsEstudiantes";
+            this.dsEstudiantes1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Estudiantes";
+            this.bindingSource1.DataSource = this.dsEstudiantes1;
+            // 
+            // estudiantesTableAdapter1
+            // 
+            this.estudiantesTableAdapter1.ClearBeforeFill = true;
             // 
             // frmInformeEstudiantes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size(757, 280);
+            this.Controls.Add(this.reportViewer2);
             this.Name = "frmInformeEstudiantes";
-            this.Text = "frmInformeEstudiantes";
-            this.Load += new System.EventHandler(this.frmInformeEstudiantes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsEstudiantes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EstudiantesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudiantesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudiantesBindingSource2)).EndInit();
+            this.Load += new System.EventHandler(this.frmInformeEstudiantes_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.dsEstudiantes1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +84,9 @@
         private ds.dsEstudiantesTableAdapters.EstudiantesTableAdapter estudiantesTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource estudiantesBindingSource2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private ds.dsEstudiantes dsEstudiantes1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private ds.dsEstudiantesTableAdapters.EstudiantesTableAdapter estudiantesTableAdapter1;
     }
 }

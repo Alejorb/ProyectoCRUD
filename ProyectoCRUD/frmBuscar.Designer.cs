@@ -32,6 +32,8 @@
             this.cmbMatricula = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGenero = new System.Windows.Forms.TextBox();
+            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -40,8 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
-            this.txtGenero = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,24 @@
             this.groupBox1.Text = "Datos del estudiante";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtGenero
+            // 
+            this.txtGenero.Location = new System.Drawing.Point(209, 127);
+            this.txtGenero.MaxLength = 30;
+            this.txtGenero.Name = "txtGenero";
+            this.txtGenero.ReadOnly = true;
+            this.txtGenero.Size = new System.Drawing.Size(136, 20);
+            this.txtGenero.TabIndex = 23;
+            // 
+            // txtFechaNacimiento
+            // 
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
+            this.txtFechaNacimiento.MaxLength = 30;
+            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
+            this.txtFechaNacimiento.ReadOnly = true;
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(136, 20);
+            this.txtFechaNacimiento.TabIndex = 22;
+            // 
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(209, 216);
@@ -122,6 +140,7 @@
             this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(200, 20);
             this.txtApellido.TabIndex = 17;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // label6
             // 
@@ -167,24 +186,6 @@
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Apellidos";
-            // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(209, 170);
-            this.txtFechaNacimiento.MaxLength = 30;
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.ReadOnly = true;
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(136, 20);
-            this.txtFechaNacimiento.TabIndex = 22;
-            // 
-            // txtGenero
-            // 
-            this.txtGenero.Location = new System.Drawing.Point(209, 127);
-            this.txtGenero.MaxLength = 30;
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.ReadOnly = true;
-            this.txtGenero.Size = new System.Drawing.Size(136, 20);
-            this.txtGenero.TabIndex = 23;
             // 
             // frmBuscar
             // 

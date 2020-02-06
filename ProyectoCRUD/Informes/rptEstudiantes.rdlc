@@ -397,7 +397,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!fechaNacimiento.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>d 'de' MMMM 'de' yyyy</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -517,7 +519,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Página: " &amp; Globals!PageNumber</Value>
+                  <Value>="Página: " &amp; Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -533,6 +535,40 @@
           <Left>11.10932cm</Left>
           <Height>0.6cm</Height>
           <Width>6.38938cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Fecha de impresion:"&amp; Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>1.10808cm</Top>
+          <Left>0.67183cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.95312cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

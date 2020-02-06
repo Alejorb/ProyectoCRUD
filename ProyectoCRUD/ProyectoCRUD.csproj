@@ -68,6 +68,9 @@
     <Compile Include="Clases\EstudianteDAO.cs" />
     <Compile Include="Clases\usuarios.cs" />
     <Compile Include="Clases\usuariosDAO.cs" />
+    <Compile Include="ds\dsEstudiantes.cs">
+      <DependentUpon>dsEstudiantes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEstudiantes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="infPersonal\frmSeleccionarEstudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infPersonal\frmSeleccionarEstudiantes.Designer.cs">
+      <DependentUpon>frmSeleccionarEstudiantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Informes\frmInformeEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +127,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TI2019DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TI2019DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adm\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +153,10 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="infPersonal\frmSeleccionarEstudiantes.resx">
+      <DependentUpon>frmSeleccionarEstudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infPersonal\rptPersonal.rdlc" />
     <EmbeddedResource Include="Informes\frmInformeEstudiantes.resx">
       <DependentUpon>frmInformeEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +191,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TI2019DataSet.xsc">
+      <DependentUpon>TI2019DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TI2019DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TI2019DataSet.xss">
+      <DependentUpon>TI2019DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
