@@ -79,7 +79,7 @@ namespace ProyectoCRUD
         {
             
                 int x = 0;
-                Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
+                Academico.Asignatura estudiante = new Academico.Asignatura(); //Creando instancia
                 estudiante.Matricula = Convert.ToString(this.cmbMatricula.SelectedValue);
                 estudiante.Apellidos = this.txtApellido.Text;
                 estudiante.Nombres = this.txtNombre.Text;
@@ -115,6 +115,11 @@ namespace ProyectoCRUD
                     MessageBox.Show(ex.Message.ToString());
                 }
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

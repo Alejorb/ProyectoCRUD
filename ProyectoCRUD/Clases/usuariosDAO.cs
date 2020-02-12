@@ -11,7 +11,7 @@ namespace Academico
 {
     public static class usuariosDAO
     {
-        private static string cadenaConexion = @"server=L-PCT-117\SQLEXPRESS2016; database=TI2019; user id=sa; password=Lab123456";
+        private static string cadenaConexion = @"server=DESKTOP-4UD5QDC\SQLEXPRESS2017; database=TI2019; user id=sa; password=Lab123456";
         public static bool validaUsuario(string usuario, string clave)/*objeto de la clase*/ 
         {
             SqlConnection conn = new SqlConnection(cadenaConexion);

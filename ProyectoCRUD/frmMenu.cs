@@ -137,5 +137,31 @@ namespace ProyectoCRUD
             frm1.MdiParent = this;
             frm1.Show();
         }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Asignaturas.frmAsignaturas frm1 = new Asignaturas.frmAsignaturas();
+            frm1.MdiParent = this;
+            frm1.Show();
+        }
+
+        private void informeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Asignaturas.frmInformeAsig frm1 = new Asignaturas.frmInformeAsig();
+            frm1.MdiParent = this;
+            frm1.Show();
+        }
+
+        private void informePersonalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            infPersonal.frmSeleccionarEstudiantes frm1 = new infPersonal.frmSeleccionarEstudiantes();
+            frm1.MdiParent = this;
+            frm1.Show();
+        }
     }
 }

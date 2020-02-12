@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoCRUD
+namespace ProyectoCRUD.infPersonal
 {
     public partial class frmSeleccionarEstudiantes : Form
     {
@@ -19,49 +19,33 @@ namespace ProyectoCRUD
 
         private void frmSeleccionarEstudiantes_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsEstudiantes.dtPersonales' Puede moverla o quitarla según sea necesario.
+            this.dtPersonalesTableAdapter.Fill(this.dsEstudiantes.dtPersonales);
+
+            this.reportViewer1.RefreshReport();
             DataTable dt = Academico.EstudianteDAO.getNombresCompletos();
             this.cmbMatricula.DataSource = dt;
             this.cmbMatricula.DisplayMember = "Estudiante";
             this.cmbMatricula.ValueMember = "Matricula";
-            this.reportViewer1.RefreshReport();
-        }
-
-        private bool buscar()
-        {
-            bool encontrado = false;
-            DataTable dt = Academico.EstudianteDAO.getDatos(this.cmbMatricula.SelectedValue.ToString());
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    encontrado = true;
-                    /*this.txtApellido.Text = fila["apellidos"].ToString();
-                    this.txtNombre.Text = fila["nombres"].ToString();
-                    this.cmbGenero.Text = fila["genero"].ToString();
-                    this.dtFechaNacimiento.Text = fila["fechaNacimiento"].ToString();
-                    this.txtCorreo.Text = fila["email"].ToString();
-                    break;*/
-                }
-            }
-            return encontrado;
-        }
-
-        private void btnVer_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbMatricula_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cmbMatricula.SelectedIndex >= 0)
+            String matricula = this.cmbMatricula.SelectedValue.ToString();
+            try
             {
-                buscar();
+                dtPersonalesTableAdapter.FBfiltrar(dsEstudiantes.dtPersonales, matricula);
+                reportViewer1.RefreshReport();
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

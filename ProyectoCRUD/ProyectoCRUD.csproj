@@ -64,6 +64,20 @@
     <Compile Include="Adm\frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Asignaturas\frmAsignaturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asignaturas\frmAsignaturas.Designer.cs">
+      <DependentUpon>frmAsignaturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Asignaturas\frmInformeAsig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asignaturas\frmInformeAsig.Designer.cs">
+      <DependentUpon>frmInformeAsig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\asignaturas.cs" />
+    <Compile Include="Clases\asignaturas.DAO.cs" />
     <Compile Include="Clases\Estudiante.cs" />
     <Compile Include="Clases\EstudianteDAO.cs" />
     <Compile Include="Clases\usuarios.cs" />
@@ -112,17 +126,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEstudiantes.xsd</DependentUpon>
     </Compile>
-    <Compile Include="infPersonal\frmSeleccionarEstudiantes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infPersonal\frmSeleccionarEstudiantes.Designer.cs">
-      <DependentUpon>frmSeleccionarEstudiantes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Informes\frmInformeEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Informes\frmInformeEstudiantes.Designer.cs">
       <DependentUpon>frmInformeEstudiantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infPersonal\frmSeleccionarEstudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infPersonal\frmSeleccionarEstudiantes.Designer.cs">
+      <DependentUpon>frmSeleccionarEstudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,9 +146,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TI2019DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TI2019DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TI2019DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TI2019DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TI2019DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TI2019DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TI2019DataSet3.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adm\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Asignaturas\frmAsignaturas.resx">
+      <DependentUpon>frmAsignaturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asignaturas\frmInformeAsig.resx">
+      <DependentUpon>frmInformeAsig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asignaturas\rptAsignaturas.rdlc" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +238,39 @@
     <None Include="TI2019DataSet.xss">
       <DependentUpon>TI2019DataSet.xsd</DependentUpon>
     </None>
+    <None Include="TI2019DataSet1.xsc">
+      <DependentUpon>TI2019DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TI2019DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TI2019DataSet1.xss">
+      <DependentUpon>TI2019DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet2.xsc">
+      <DependentUpon>TI2019DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TI2019DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TI2019DataSet2.xss">
+      <DependentUpon>TI2019DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet3.xsc">
+      <DependentUpon>TI2019DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TI2019DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TI2019DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TI2019DataSet3.xss">
+      <DependentUpon>TI2019DataSet3.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -220,6 +289,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

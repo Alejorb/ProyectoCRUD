@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academico
 {
-    public class Estudiante
+    public class Asignatura
     {
         public  string Matricula { get; set; }
         public string Apellidos { get; set; }

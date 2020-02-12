@@ -34,7 +34,7 @@ namespace ProyectoCRUD
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int x = 0;
-            Academico.Estudiante estudiante = new Academico.Estudiante(); //Creando instancia
+            Academico.Asignatura estudiante = new Academico.Asignatura(); //Creando instancia
             estudiante.Matricula = this.txtMatricula.Text;
             estudiante.Apellidos = this.txtApellido.Text;
             estudiante.Nombres = this.txtNombre.Text;
